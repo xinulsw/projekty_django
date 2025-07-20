@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+{% block tresc %}
+
+{% if object_list %}
+    <ul>
+        {% for q in object_list %}
+        <li><a href="{% url 'polls:detail' q.id %}">{{ q.tekst_pytania }}</a> ({{ q.autor.username }}, {{ q.data_pub|date:'d.m.Y' }})
+            (<a href="{% url 'polls:odpowiedzi' q.id %}">Dodaj odpowiedzi</a>)
+            (<a href="{% url 'polls:delete' q.id %}">Usuń</a>)
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak ankiet!</p>
+{% endif %}
+
+{% endblock %}

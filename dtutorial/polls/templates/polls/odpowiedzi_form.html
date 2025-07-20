@@ -1,0 +1,14 @@
+{% extends "polls/base.html" %}
+{% block tresc %}
+
+<h1>Dodaj odpowiedzi</h1>
+
+<p>Pytanie: {{ pytanie.tekst_pytania }} </p>
+
+<form action="{% url 'polls:odpowiedzi' pytanie.id %}" method="post">
+    {% csrf_token %}
+    {{ formset }}
+    <input type="submit" value="Zapisz">
+</form>
+
+{% endblock %}

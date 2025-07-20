@@ -1,0 +1,13 @@
+{% extends "polls/base.html" %}
+{% block tresc %}
+
+<form action="." method="post">
+    {% csrf_token %}
+<fieldset>
+    <h1>Czy na pewno chcesz usunąć to pytanie?</h1>
+    <p>{{ pytanie.tekst_pytania }}</p>
+</fieldset>
+    <input type="submit" value="Usuń">
+</form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "polls/base.html" %}
+{% block tresc %}
+<h1>Dodaj pytanie</h1>
+
+<form action="." method="post" id="pform">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <h3>Odpowiedzi:</h3>
+  {{ odpowiedzi.management_form }}
+  {{ odpowiedzi.non_form_errors }}
+  {% for odp in odpowiedzi %}
+  {{ odp.id }}
+    <div class="{{ odpowiedzi.prefix }}">
+      <span>{{ forloop.counter }})&nbsp;</span>
+      {{ odp.tekst_odp.errors }}
+      {{ odp.tekst_odp.label_tag }} {{ odp.tekst_odp }}
+    </div>
+  {% endfor %}
+  <br /><input type="submit" value="Zapisz">
+</form>
+
+{% endblock %}

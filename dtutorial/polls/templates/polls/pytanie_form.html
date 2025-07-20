@@ -1,0 +1,12 @@
+{% extends "polls/base.html" %}
+{% block tresc %}
+
+<h1>Dodaj pytanie</h1>
+
+<form action="." method="post" id="pform">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Dodaj">
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<h1>Mały Bar</h1>
+<p>{{ komunikat }}</p>
+
+<ul>
+    {% if request.user.is_authenticated %}
+      <li><a href="{% url 'login' %}">Zaloguj się</a></li>
+      <li><a href="{% url 'django_registration_register' %}">Utwórz konto</a></li>
+    {% else %}
+      <li><form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+      </li>
+    {% endif %}
+</ul>
