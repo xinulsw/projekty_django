@@ -1,2 +1,3 @@
-# projekty_django
+# Projekty Django
+
 Projekty aplikacji internetowych wykorzystujących framework Django
