@@ -37,6 +37,8 @@ urlpatterns = [
             success_url='/wiadomosci'),
         login_url='/loguj'),
         name='usun'),
-    path("loguj/", auth_views.LoginView.as_view(template_name="czat/loguj.html"), name='loguj'),
+    path("loguj/", auth_views.LoginView.as_view(template_name="czat/loguj.html"),
+         {'next_page': reverse_lazy('users:index')},
+         name='loguj'),
     path('wyloguj/', auth_views.LogoutView.as_view(), name='wyloguj'),
 ]
