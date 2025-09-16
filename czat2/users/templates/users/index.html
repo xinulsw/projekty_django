@@ -23,6 +23,7 @@
             {% csrf_token %}
             <button type="submit">Wyloguj</button>
         </form>
+        <p><a href="{% url 'czat:wiadomosci' %}">Wiadomości »»»</a></p>
     {% else %}
         <p><a href="{% url 'users:rejestruj' %}">Utwórz konto</a></p>
         <form method="POST" action="{% url 'users:loguj' %}">
