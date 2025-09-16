@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Dodawanie wiadomości</title>
 </head>
 <body>
-    <h2>Dodaj wiadomość</h2>
+    <h1>Dodaj wiadomość</h1>
     <form method="POST">
       {% csrf_token %}
       {{ form.as_p }}

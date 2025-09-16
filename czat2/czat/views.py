@@ -4,6 +4,11 @@ from .models import Wiadomosc
 from django.utils import timezone
 from django.contrib import messages
 
+
+def index(request):
+    return render(request, 'czat/index.html')
+
+
 class DodajWiadomosc(CreateView):
     model = Wiadomosc
     fields = ['tekst', 'data_pub']

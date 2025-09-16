@@ -1,17 +1,18 @@
 from django.urls import path
+from . import views  # import widoków aplikacji
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DeleteView
 from .models import Wiadomosc
-from . import views  # import widoków aplikacji
 
 app_name = 'czat'  # przestrzeń nazw aplikacji
 urlpatterns = [
-    path('', login_required(
+    path('', views.index, name='index'),
+    path('lista/', login_required(
         ListView.as_view(
             model=Wiadomosc,
             context_object_name='wiadomosci',
             paginate_by=2)),
-        name='wiadomosci'),
+        name='lista'),
     path('dodaj/', login_required(
         views.DodajWiadomosc.as_view()),
         name='dodaj'),
