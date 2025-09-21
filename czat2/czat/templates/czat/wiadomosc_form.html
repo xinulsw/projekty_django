@@ -13,17 +13,7 @@
       <button type="submit">Zapisz</button>
     </form>
 
-    <h2>Lista wiadomości:</h2>
-    <ol>
-      {% for wiadomosc in wiadomosci %}
-      <li>
-        <strong>{{ wiadomosc.autor.username }}</strong> ({{ wiadomosc.data_pub }}):
-        <br /> {{ wiadomosc.tekst }}
-      </li>
-      {% endfor %}
-    </ol>
-
-    <p><a href="{% url 'czat:wiadomosci' %}">Strona główna</a></p>
+    <p><a href="{% url 'czat:lista' %}">Lista wiadomości</a></p>
 
   </body>
 </html>

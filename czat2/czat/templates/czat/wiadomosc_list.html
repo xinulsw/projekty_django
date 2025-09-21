@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Lista wiadomości</h1>
+
+    {% if messages %}
+      <ul>
+        {% for komunikat in messages %}
+          <li>{{ komunikat|capfirst }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
     <ol>
       {% for wiadomosc in wiadomosci %}
       <li>
@@ -29,6 +38,10 @@
       {% endif %}
       </p>
     {% endif %}
+
+    <p>
+        <a href="{% url 'czat:dodaj' %}">Dodaj wiadomość »»»</a>
+    </p>
 
   </body>
 </html>
